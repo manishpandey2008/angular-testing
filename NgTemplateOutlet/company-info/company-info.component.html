@@ -1,0 +1,39 @@
+<div class="card">
+
+    <div>
+        <!-- <div #headerContent></div>  -->
+        <!-- Above Div will create new extra div above the header, 
+            for solve this problem we will use ng-container-->
+    
+            <!-- TemplateRef Flow -->
+        <!-- <ng-container #headerContent></ng-container>
+            <ng-template #defaultHeader>
+                <h1>{{companyService.companyDetais.name}}</h1>
+            </ng-template>
+        -->
+
+        <!-- NgTemplateOutlet -->
+        <ng-container [ngTemplateOutlet]="inputHeaderTemplate || defaultHeader"></ng-container>
+        <ng-template #defaultHeader>
+            <h1>{{companyService.companyDetais.name}}</h1>
+        </ng-template>
+    </div>   
+
+    <div class="company-details">
+
+        <ng-container [ngTemplateOutlet]="inputDetailsTemplate || defeultDetails" [ngTemplateOutletContext]="{details:companyService.newCompanyDetais}"></ng-container>
+
+        <ng-template #defeultDetails>
+            <p>{{companyService.companyDetais.phone}}</p>
+            <p>{{companyService.companyDetais.email}}</p>
+            <p>{{companyService.companyDetais.address['ditails']}}, 
+                {{companyService.companyDetais.address['dist']}} ,
+                {{companyService.companyDetais.address['state']}}, {{companyService.companyDetais.address['pin']}}</p>
+        </ng-template>
+    </div>
+
+    <div class="footer">
+        <button>Change</button>
+        <button>Copy</button>
+    </div>
+</div>

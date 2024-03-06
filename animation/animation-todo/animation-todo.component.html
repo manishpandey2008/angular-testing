@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="header" @jump>
+        Todo
+    </div>
+    <div class="main">
+        <div class="input">
+            <input [(ngModel)]="textVal" type="text">
+            <button (click)="addItem()">Save</button>
+        </div>
+        <div class="items" >
+            <div @fade class="item" *ngFor="let item of itemList;let i=index">
+                <div>
+                    {{item}}
+                </div>
+                <button (click)="removeItem(i)">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

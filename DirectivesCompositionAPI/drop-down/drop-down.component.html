@@ -1,0 +1,9 @@
+<div class="context-menu">
+    <div class="context-menu-item" *ngFor="let item of menuItems" (click)="onMenuItemClick(item)">
+      {{ item.label }}
+      <app-drop-down *ngIf="item.children" [menuItems]="item.children" (itemSelected)="onMenuItemClick($event)"
+        (childItemSelected)="onMenuItemClick($event)">
+      </app-drop-down>
+    </div>
+  </div>
+  

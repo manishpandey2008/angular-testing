@@ -1,0 +1,36 @@
+<div [formGroup]="tempForm">
+    <div formGroupName="field1">
+        <input type="text" name="" id="" formControlName="field11">
+        <input type="text" name="" id="" formControlName="field12">
+    </div>
+    <div formArrayName="field2">
+        <div *ngFor="let item of formArry.controls;let i=index">
+                <div [formGroupName]="i">
+                    <input type="text" formControlName="name">
+                    <input type="text" formControlName="mobileNumber">
+                </div>
+        </div>
+    </div>
+    <button (click)="add()">Add</button>
+</div>
+
+
+<pre>
+    {{tempForm.value | json}}
+</pre>
+
+
+<!-- 
+formGroup=new FormGroup({
+    field1:new FormGroup({
+      field11: new FormControl(""),
+      field12: new FormControl("")
+    }),
+    field2:new FormArray([
+        {
+            name: new FormControl(""),
+            mobileNumber: new FormControl("")
+        }
+    ])
+}) 
+-->

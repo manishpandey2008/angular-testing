@@ -1,0 +1,23 @@
+<button (click)="loadDynamicItems('text')">Load Test Items</button>
+<button (click)="loadDynamicItems('edit')">Load Edit Items</button>
+
+
+<table>
+    <thead class="" >
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Salery</th>
+        </tr>
+    </thead>
+    <tbody >
+
+        <ng-container  #dynamicComponents></ng-container>
+        
+        <!-- < tr  #dynamicComponents></app-dynamic-item> -->
+
+        <!-- <tr app-dynamic-item #dynamicComponents>
+
+        </tr> -->
+    </tbody>
+</table>
