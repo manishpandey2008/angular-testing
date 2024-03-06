@@ -33,6 +33,7 @@ export interface State {
 })
 export class StateMangeService {
 
+  
   map = new Map<string, StateResponse>;
 
   registorFunction(request: Request): StateResponse | null {
