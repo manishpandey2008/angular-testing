@@ -1,0 +1,64 @@
+<main>
+    <h1>Structural Directives</h1>
+    <!-- Not Working -->
+    <!-- <section *hideAfter [delay]="5000" class="section-wraapper">
+        <h2>Testing Component</h2>
+        <p>This component we created for testing of Structural Directive</p>
+    </section> -->
+
+    <!-- Working -->
+    <!-- <ng-template hideAfter [delay]="5000">
+        <section class="section-wraapper">
+            <h2>Testing Component</h2>
+            <p>This component we created for testing of Structural Directive</p>
+        </section>
+    </ng-template> -->
+
+    <!-- Working -->
+    <!-- <section *hideAfter="5000" class="section-wraapper">
+        <h2>Testing Component</h2>
+        <p>This component we created for testing of Structural Directive</p>
+    </section> -->
+
+
+    <!-- I want to add some other case like else in ngIf Directives -->
+    <section *hideAfter="5000 as hideTime; latter placeHosder;let count=timeCounter; let defaultValue" class="section-wraapper">
+        <h2>Testing Component</h2>
+        <p>This component we created for testing of Structural Directive : {{hideTime}} s, Counter :{{count}} s, Default Value = {{defaultValue}}</p>
+    </section>
+    <ng-template #placeHosder let-counter="timeCounter" let-x="hideAfter" let-defaultVal>
+        <section class="section-wraapper">
+            <h2>After Removing Testing Component {{counter}}</h2>
+            <p>This component we created for testing of Structural Directive else case : Time = {{x}} , Default Value is {{defaultVal}}</p>
+        </section>
+    </ng-template>
+    
+
+    
+</main>
+
+
+
+
+<!-- For Structural  Directives we need to add * with directive name-->
+
+<!-- If you use * than all contant will comes under <ng-template></ng-template> 
+
+    <section *hideAfter class="section-wraapper">
+        <h2>Testing Component</h2>
+    </section>
+
+    ---------means----------
+
+    <ng-template hideAfter>
+        <section class="section-wraapper">
+            <h2>Testing Component</h2>
+        </section>
+    </ng-template> 
+-->
+
+<!-- 
+    In Structural  Directives we can not pass input values like [<input name>] ="<Input Value>",
+    because in angular understaand @Input directiove we are passing for section not for directive, because after using * directive
+    has implemented on <ng-template>, 
+ -->

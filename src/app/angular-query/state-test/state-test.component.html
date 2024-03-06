@@ -1,0 +1,7 @@
+@if (resp?.isLoading() || resp==undefined) {
+    <p>Lodding..........</p>
+}@else if (resp?.isFaild()) {
+    <p>Faild to load data</p>
+}@else {
+    <p>Total Recorde :- {{resp?.data().length}}</p>
+}

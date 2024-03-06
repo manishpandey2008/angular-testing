@@ -1,0 +1,13 @@
+<app-company-info [inputHeaderTemplate]="inputNewCompnay" [inputDetailsTemplate]="inputNewCompanyDetails"></app-company-info>
+
+<ng-template #inputNewCompnay>
+    <h2 class="newComp">Google</h2>
+</ng-template>
+
+<ng-template #inputNewCompanyDetails let-companyDetais="details">
+    <p>{{companyDetais.phone}}</p>
+    <p>{{companyDetais.email}}</p>
+    <p>{{companyDetais.address['ditails']}}, 
+        {{companyDetais.address['dist']}} ,
+        {{companyDetais.address['state']}}, {{companyDetais.address['pin']}}</p>
+</ng-template>

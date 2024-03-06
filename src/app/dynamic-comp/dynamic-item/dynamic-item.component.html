@@ -1,0 +1,43 @@
+
+<!-- <tr>
+    
+</tr> -->
+
+<ng-container *ngIf="format=='text'">
+    <td>{{rowData?.name}}</td>
+    <td>{{rowData?.phone}}</td>
+    <td>{{rowData?.salery}}</td>
+</ng-container>
+
+<ng-container *ngIf="format=='edit' && formGroup">
+    <ng-container [formGroup]="formGroup">
+        <td>
+            <input type="text" formControlName="name">
+        </td>
+        <td>
+            <input type="text" formControlName="phone">
+        </td>
+        <td>
+            <input type="number" formControlName="salery">
+        </td>
+    </ng-container>
+    {{formGroup.value | json}}
+</ng-container>
+
+
+<!-- <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+
+<ng-template #contentTemplate>
+    <div [ngStyle]="{'color': format=='text'?'green':'red'}">
+        {{format}}
+    </div>
+
+    <tr>
+        <td>{{rowData.name}}</td>
+        <td>{{rowData.phone}}</td>
+        <td>{{rowData.salery}}</td>
+    </tr>
+</ng-template> -->
+
+
+<!-- context: { content: content } -->

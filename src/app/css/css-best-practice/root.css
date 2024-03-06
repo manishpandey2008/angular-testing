@@ -1,0 +1,140 @@
+:root{
+    --black-1 : rgb(139, 138, 138);
+    --black-2 : rgb(122, 121, 121);
+    --black-3 : rgb(112, 112, 112);
+    --black-4 : rgb(107, 107, 107);
+    --black-5 : rgb(92, 91, 91);
+    --black-6 : rgb(88, 88, 88);
+    --black-7 : rgb(59, 59, 59);
+    --black-8 : rgb(43, 43, 43);
+    --black-9 : rgb(15, 15, 15);
+    --black-10 : rgb(3, 3, 3);
+
+    --padding-25 : 0.25rem;
+    --padding-50 : 0.5rem;
+    --padding-75 : 0.75rem;
+    --padding-100 : 1rem;
+    --padding-125 : 1.25rem;
+    --padding-150 : 1.5rem;
+    --padding-175 : 1.75rem;
+    --padding-200 : 2rem;
+    --padding-225 : 2.25rem;
+    --padding-250 : 2.5rem;
+
+    --padding-l-25 : 0.25rem;
+    --padding-l-50 : 0.5rem;
+    --padding-l-75 : 0.75rem;
+    --padding-l-100 : 1rem;
+    --padding-l-125 : 1.25rem;
+    --padding-l-150 : 1.5rem;
+    --padding-l-175 : 1.75rem;
+    --padding-l-200 : 2rem;
+    --padding-l-225 : 2.25rem;
+    --padding-l-250 : 2.5rem;
+
+    --padding-r-25 : 0.25rem;
+    --padding-r-50 : 0.5rem;
+    --padding-r-75 : 0.75rem;
+    --padding-r-100 : 1rem;
+    --padding-r-125 : 1.25rem;
+    --padding-r-150 : 1.5rem;
+    --padding-r-175 : 1.75rem;
+    --padding-r-200 : 2rem;
+    --padding-r-225 : 2.25rem;
+    --padding-r-250 : 2.5rem;
+
+    --padding-t-25 : 0.25rem;
+    --padding-t-50 : 0.5rem;
+    --padding-t-75 : 0.75rem;
+    --padding-t-100 : 1rem;
+    --padding-t-125 : 1.25rem;
+    --padding-t-150 : 1.5rem;
+    --padding-t-175 : 1.75rem;
+    --padding-t-200 : 2rem;
+    --padding-t-225 : 2.25rem;
+    --padding-t-250 : 2.5rem;
+
+    --padding-b-25 : 0.25rem;
+    --padding-b-50 : 0.5rem;
+    --padding-b-75 : 0.75rem;
+    --padding-b-100 : 1rem;
+    --padding-b-125 : 1.25rem;
+    --padding-b-150 : 1.5rem;
+    --padding-b-175 : 1.75rem;
+    --padding-b-200 : 2rem;
+    --padding-b-225 : 2.25rem;
+    --padding-b-250 : 2.5rem;
+
+    --margin-25 : 0.25rem;
+    --margin-50 : 0.5rem;
+    --margin-75 : 0.75rem;
+    --margin-100 : 1rem;
+    --margin-125 : 1.25rem;
+    --margin-150 : 1.5rem;
+    --margin-175 : 1.75rem;
+    --margin-200 : 2rem;
+    --margin-225 : 2.25rem;
+    --margin-250 : 2.5rem;
+
+    --margin-l-25 : 0.25rem;
+    --margin-l-50 : 0.5rem;
+    --margin-l-75 : 0.75rem;
+    --margin-l-100 : 1rem;
+    --margin-l-125 : 1.25rem;
+    --margin-l-150 : 1.5rem;
+    --margin-l-175 : 1.75rem;
+    --margin-l-200 : 2rem;
+    --margin-l-225 : 2.25rem;
+    --margin-l-250 : 2.5rem;
+
+    --margin-r-25 : 0.25rem;
+    --margin-r-50 : 0.5rem;
+    --margin-r-75 : 0.75rem;
+    --margin-r-100 : 1rem;
+    --margin-r-125 : 1.25rem;
+    --margin-r-150 : 1.5rem;
+    --margin-r-175 : 1.75rem;
+    --margin-r-200 : 2rem;
+    --margin-r-225 : 2.25rem;
+    --margin-r-250 : 2.5rem;
+
+    --margin-t-25 : 0.25rem;
+    --margin-t-50 : 0.5rem;
+    --margin-t-75 : 0.75rem;
+    --margin-t-100 : 1rem;
+    --margin-t-125 : 1.25rem;
+    --margin-t-150 : 1.5rem;
+    --margin-t-175 : 1.75rem;
+    --margin-t-200 : 2rem;
+    --margin-t-225 : 2.25rem;
+    --margin-t-250 : 2.5rem;
+
+    --margin-b-25 : 0.25rem;
+    --margin-b-50 : 0.5rem;
+    --margin-b-75 : 0.75rem;
+    --margin-b-100 : 1rem;
+    --margin-b-125 : 1.25rem;
+    --margin-b-150 : 1.5rem;
+    --margin-b-175 : 1.75rem;
+    --margin-b-200 : 2rem;
+    --margin-b-225 : 2.25rem;
+    --margin-b-250 : 2.5rem;
+
+    --roundup : 0.25rem;
+    --margin-b-50 : 0.5rem;
+    --margin-b-75 : 0.75rem;
+    --margin-b-100 : 1rem;
+    --margin-b-125 : 1.25rem;
+    --margin-b-150 : 1.5rem;
+    --margin-b-175 : 1.75rem;
+    --margin-b-200 : 2rem;
+    --margin-b-225 : 2.25rem;
+    --margin-b-250 : 2.5rem;
+
+    --radius-5:5px;
+    --radius-10:10px;
+    --radius-15:15px;
+    --radius-20:20px;
+    --radius-25:25px;
+
+}
