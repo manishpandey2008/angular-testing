@@ -1,13 +1,9 @@
-@if (query.isPending()) {
-    Loading...
-  }
-  @if (query.error()) {
-    An error has occurred: {{ query.error().message }}
-  }
-  @if (query.data(); as data) {
-    <h1>{{ data.name }}</h1>
-    <p>{{ data.description }}</p>
-    <strong>👀 {{ data.subscribers_count }}</strong>
-    <strong>✨ {{ data.stargazers_count }}</strong>
-    <strong>🍴 {{ data.forks_count }}</strong>
-}
+<div style="height: 80vh;overflow-y: auto;">
+  <button (click)="onAddTodo()">Add Todo</button>
+
+  <ul>
+    @for (todo of query.data(); track todo.title) {
+      <li>{{ todo.title }}</li>
+    }
+  </ul>
+</div>
