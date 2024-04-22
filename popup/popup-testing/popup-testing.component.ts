@@ -16,6 +16,7 @@ export class PopupTestingComponent implements AfterViewInit {
   @ViewChild("pop1") templateRef1!: TemplateRef<any>;
   @ViewChild("pop2") templateRef2!: TemplateRef<any>;
   @ViewChild("pop3") templateRef3!: TemplateRef<any>;
+
   @ViewChild("pop4") templateRef4!: TemplateRef<any>;
 
   popupForm:FormGroup=new FormGroup({
@@ -61,7 +62,9 @@ export class PopupTestingComponent implements AfterViewInit {
         {
           btnLabel:"Continue",
           btnDirection:'right',
-          btnTrigerEventName:'continueBtnRef',
+          btnFuncton:()=>{
+            console.log("======ContinueContinue======",);
+          }
         }
       ]
     }
@@ -74,7 +77,7 @@ export class PopupTestingComponent implements AfterViewInit {
     // Tempate Regisration
 
     // this.templateRegistrationService.addTemplate("message",{templateRef:this.templateRef1,metaDate:{}});
-    this.templateRegistrationService.addTemplate("popupForm",{templateRef:this.templateRef4,metaDate:{formGroup:this.popupForm}});
+    this.templateRegistrationService.addTemplate("popupForm",{templateRef:this.templateRef4,metaDate:{formGroup:this.popupForm,value:"12355556"}});
   }
 
   btnSubscribe(){
@@ -103,8 +106,6 @@ export class PopupTestingComponent implements AfterViewInit {
       }
     })
   }
-
-
 
   funCall(){
     TestingWebFunction['testFormPopUp'](this.pubSubService,this.templateRegistrationService);
