@@ -1,0 +1,11 @@
+<div [formGroup]="formGroup">
+    <div formArrayName="formArray">
+        @for (item of formArray.controls; track item;let i = $index) {
+            <div [formGroupName]="i">
+                <input type="number" placeholder="Child 1" formControlName="child1" >
+                <input type="number" placeholder="Child 2" formControlName="child2" >
+            </div>
+        }
+    </div>
+</div>
+<button (click)="add()">App</button>

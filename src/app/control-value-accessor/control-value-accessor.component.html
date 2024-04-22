@@ -1,0 +1,7 @@
+<div [formGroup]="formGroup">
+    <input type="text" formControlName="field1">
+    <input type="text" formControlName="field2">
+    <!-- <app-control-value-accessor-child [formControl]="formGroup.controls['field3']"></app-control-value-accessor-child> -->
+</div>
+
+{{formGroup.value | json}}

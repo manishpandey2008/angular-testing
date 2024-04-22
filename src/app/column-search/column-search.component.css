@@ -1,0 +1,35 @@
+.column-search-wrapper{
+}
+
+.search-box{
+    width: 98vw;
+    border-radius: 0.1rem;
+    border: 1px solid gray;
+}
+
+.search-box > input{
+    outline: none;
+    width:97vw;
+    padding: 0.4rem;
+    border: 0px;
+}
+
+.search-result{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 20vh;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+.search-item{
+    padding: 0.2rem;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.search-item:hover{
+    background-color: rgb(245, 245, 245);
+}

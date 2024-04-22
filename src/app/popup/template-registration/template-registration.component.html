@@ -1,0 +1,18 @@
+<ng-template #pop4 let-options="options" >
+    <div >
+       <select [(ngModel)]="selecteItem">
+        @for (item of options; track $index) {
+            <option [value]="item.value">{{item.label}}</option>
+        }
+       </select>
+    </div>
+</ng-template>
+
+
+<ng-template #pop5 let-item="item">
+    <div>
+        Publish Id : {{item.popId}}
+        <input type="text" placeholder="Enter First Name">
+        <input type="text" placeholder="Enter Last Name">
+    </div>
+</ng-template>

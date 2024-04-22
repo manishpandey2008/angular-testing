@@ -1,0 +1,33 @@
+<p>popup-testing works!</p>
+
+
+<ng-template #pop1 let-item="item" let-popupData="popupData">
+    <div>
+       {{popupData.message}}
+    </div>
+</ng-template>
+
+<ng-template #pop2 let-item="item">
+    <div>
+        Publish Id : {{item.popId}}
+        <input type="number" placeholder="Enter Value">
+    </div>
+</ng-template>
+
+<ng-template #pop3 let-item="item">
+    <div>
+        Publish Id : {{item.popId}}
+        <input type="text" placeholder="Enter First Name">
+        <input type="text" placeholder="Enter Last Name">
+    </div>
+</ng-template>
+
+
+<ng-template #pop4 let-item="item">
+    <div [formGroup]="popupForm">
+        <input type="text"  id="" formControlName="name" placeholder="Name">
+        <input type="number"  id="" formControlName="mobile" placeholder="Mobile">
+    </div>
+</ng-template>
+
+<button (click)="funCall()">Function Call</button>

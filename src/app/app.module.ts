@@ -39,6 +39,12 @@ import { FirstQuearyComponent } from './angular-query/first-queary/first-queary.
 import { QueryClient, provideAngularQuery } from '@tanstack/angular-query-experimental';
 import { ApiStateHandleComponent } from './angular-query/api-state-handle/api-state-handle.component';
 import { StateTestComponent } from './angular-query/state-test/state-test.component';
+import { InputBindingInAngularRouterComponent } from './input-binding-in-angular-router/input-binding-in-angular-router.component';
+import { provideRouter } from '@angular/router';
+import { PopupComponent } from './popup/popup/popup.component';
+import { PopupTestingComponent } from './popup/popup-testing/popup-testing.component';
+import { TemplateRegistrationComponent } from './popup/template-registration/template-registration.component';
+import { ColumnSearchComponent } from './column-search/column-search.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +79,12 @@ import { StateTestComponent } from './angular-query/state-test/state-test.compon
     ConnectingBlockComponent,
     FirstQuearyComponent,
     ApiStateHandleComponent,
-    StateTestComponent
+    StateTestComponent,
+    InputBindingInAngularRouterComponent,
+    PopupComponent,
+    PopupTestingComponent,
+    TemplateRegistrationComponent,
+    ColumnSearchComponent
   ],
   imports: [
     BrowserModule,

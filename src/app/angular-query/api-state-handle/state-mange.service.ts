@@ -23,6 +23,7 @@ export interface Request {
   retry?:number;
 }
 
+
 export interface State {
   key: string;
   response: Response;
