@@ -3,20 +3,21 @@
 
 <ng-template #pop1 let-item="item" let-popupData="popupData">
     <div>
-       {{popupData.message}}
+       <!-- {{popupData.message}} -->
+       This iS First POpoup
     </div>
 </ng-template>
 
 <ng-template #pop2 let-item="item">
     <div>
-        Publish Id : {{item.popId}}
+         Id : {{item.popId}}
         <input type="number" placeholder="Enter Value">
     </div>
 </ng-template>
 
 <ng-template #pop3 let-item="item">
     <div>
-        Publish Id : {{item.popId}}
+         Id : {{item.popId}}
         <input type="text" placeholder="Enter First Name">
         <input type="text" placeholder="Enter Last Name">
     </div>
@@ -31,3 +32,4 @@
 </ng-template>
 
 <button (click)="funCall()">Function Call</button>
+

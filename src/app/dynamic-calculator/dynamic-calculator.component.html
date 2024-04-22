@@ -1,0 +1,54 @@
+<div class="dc-wrapper">
+    <div class="dc-pre-main">
+        <div class="dc-main">
+            <div class="dc-header">
+                Dynamic calculator
+            </div>
+            <div class="dc-body">
+                <!-- Arthemetic Area -->
+                <div class="section">
+                    <label for="">Arithemetic Operators</label>
+                    <div class="dc-arthemetic">
+                        @for (item of arthemeticFields; track $index) {
+                            <div class="item-1 item">{{item}}</div>
+                        }
+                    </div>
+                </div> 
+                <!-- Logical Area -->
+                <div class=" section">
+                    <label for="">Logical Operators</label>
+                    <div class="dc-arthemetic">
+                        @for (item of logicalFields; track $index) {
+                            <div class="item-2 item">{{item}}</div>
+                        }
+                    </div>
+                </div>
+                <!-- Veriable Field -->
+                <div class="dc-veriable section">
+                    <label for="">Logical Operators</label>
+                    <div class="dc-arthemetic">
+                        @for (item of veriable; track $index) {
+                            <div class="item-2 item" (click)="addInputTag(item.fieldLabel)">{{item.fieldLabel}}</div>
+                        }
+                    </div>
+                </div>
+                <!-- Formula Field -->
+                <div class="dc-formula section">
+                    <div class="formula-builder-section">
+                        <div  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="editableDiv">
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- Condition Area -->
+                <div class="dc-condition">
+                    
+                </div>
+            </div>
+            <div class="dc-footer">
+                <button (click)="calculation()">Calculation</button>
+            </div>
+        </div>
+    </div>
+</div>

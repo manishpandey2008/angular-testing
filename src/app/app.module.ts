@@ -45,6 +45,8 @@ import { PopupComponent } from './popup/popup/popup.component';
 import { PopupTestingComponent } from './popup/popup-testing/popup-testing.component';
 import { TemplateRegistrationComponent } from './popup/template-registration/template-registration.component';
 import { ColumnSearchComponent } from './column-search/column-search.component';
+import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calculator.component';
+import { ContentEditableModelDirective } from './dynamic-calculator/content-editable-model.directive';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ import { ColumnSearchComponent } from './column-search/column-search.component';
     PopupComponent,
     PopupTestingComponent,
     TemplateRegistrationComponent,
-    ColumnSearchComponent
+    ColumnSearchComponent,
+    DynamicCalculatorComponent,
+    ContentEditableModelDirective
   ],
   imports: [
     BrowserModule,

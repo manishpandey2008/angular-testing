@@ -9,6 +9,7 @@ import { InputBindingInAngularRouterComponent } from './input-binding-in-angular
 import { idText } from 'typescript';
 import { PopupTestingComponent } from './popup/popup-testing/popup-testing.component';
 import { ColumnSearchComponent } from './column-search/column-search.component';
+import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calculator.component';
 
 const routes: Routes = [
   {path:"user-list",component:UserListComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   },
   {path:"popup-testing",component:PopupTestingComponent},
   {path:"column-serch",component:ColumnSearchComponent},
+  {path:"dynamic-calculator",component:DynamicCalculatorComponent},
 ];
 
 @NgModule({
