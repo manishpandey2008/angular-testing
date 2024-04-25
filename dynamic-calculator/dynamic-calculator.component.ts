@@ -86,12 +86,10 @@ export class DynamicCalculatorComponent {
     parentElemnt?.childNodes.forEach((e:any)=>{
         finalStr+= (e.nodeType==Node.TEXT_NODE)?e.textContent:"<"+e.value+">";
     })
-    console.log("-----------",finalStr);
-
-    // this.finalFormula="2 * 5 + (<Field 1> + <Field 4>) + 3 * (<Field 2>+2)"
-    // this.http.post("http://localhost:8082/api-ctrm/formula-builder/build",{finalFormula:this.finalFormula}).subscribe(resp=>{
-    //   console.log("Resp:",resp);
-    // })
+    this.finalFormula="2 * 5 + (<Field 1> + <Field 4>) + 3 * (<Field 2>+2)"
+    this.http.post("http://localhost:8082/api-ctrm/formula-builder/build",{finalFormula:this.finalFormula}).subscribe(resp=>{
+      console.log("Resp:",resp);
+    })
   }
 
 }
