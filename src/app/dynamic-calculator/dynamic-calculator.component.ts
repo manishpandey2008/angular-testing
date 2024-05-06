@@ -97,7 +97,6 @@ export class DynamicCalculatorComponent {
       this.http.post("http://localhost:8082/api-ctrm/formula-builder/build",{finalFormula:finalStr}).subscribe(resp=>{
         this.finalResult.set(resp);
       })
-    
   }
 
 }
