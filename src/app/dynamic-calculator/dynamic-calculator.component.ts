@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, HostListener, Renderer2 } from '@angular/core';
+import { Component, HostListener, Renderer2, signal } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-calculator',
@@ -37,6 +37,8 @@ export class DynamicCalculatorComponent {
     }
   ]
 
+  finalResult=signal<any>(0.0)
+
   constructor(private renderer: Renderer2,private http:HttpClient) { }
 
   handleCursorIndexChange(node: { node: Node, index: number }) {
@@ -51,6 +53,8 @@ export class DynamicCalculatorComponent {
     inputElement.setAttribute("readonly", "");
     inputElement.style.border = "0px";
     inputElement.style.width = value ? value.length * 0.4 + 'rem' : "10px";
+    // inputElement.style.width = 'fit-content';
+
     inputElement.style.textAlign = "center";
     inputElement.addEventListener('focus', () => {
       inputElement.style.outline = "none"
@@ -58,8 +62,10 @@ export class DynamicCalculatorComponent {
     inputElement.style.fontSize = "12px";
     inputElement.style.fontWeight = "600";
     inputElement.style.color = "rgb(104, 103, 103)";
+    inputElement.style.backgroundColor = 'red';
 
-    let textNode = document.createTextNode(" ");
+
+    let textNode = document.createTextNode("");
     if (this.currentNode.node.nodeType === Node.TEXT_NODE) {
        textNode = this.currentNode.node as Text;
     }
@@ -86,12 +92,12 @@ export class DynamicCalculatorComponent {
     parentElemnt?.childNodes.forEach((e:any)=>{
         finalStr+= (e.nodeType==Node.TEXT_NODE)?e.textContent:"<"+e.value+">";
     })
-    console.log("-----------",finalStr);
+    finalStr=finalStr.trim()
 
-    // this.finalFormula="2 * 5 + (<Field 1> + <Field 4>) + 3 * (<Field 2>+2)"
-    // this.http.post("http://localhost:8082/api-ctrm/formula-builder/build",{finalFormula:this.finalFormula}).subscribe(resp=>{
-    //   console.log("Resp:",resp);
-    // })
+      this.http.post("http://localhost:8082/api-ctrm/formula-builder/build",{finalFormula:finalStr}).subscribe(resp=>{
+        this.finalResult.set(resp);
+      })
+    
   }
 
 }

@@ -35,19 +35,29 @@
                 <!-- Formula Field -->
                 <div class="dc-formula section">
                     <div class="formula-builder-section">
-                        <div  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="editableDiv">
+                        <div class="formula-div"  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="editableDiv">
                         
                         </div>
                     </div>
                     
                 </div>
                 <!-- Condition Area -->
-                <div class="dc-condition">
+                <div class="dc-formula section">
+                    <div class="formula-builder-section">
+                        <div class="conditions-div"  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="conditionalDiv">
+                        
+                        </div>
+                    </div>
                     
                 </div>
+
+              
             </div>
             <div class="dc-footer">
                 <button (click)="calculation()">Calculation</button>
+            </div>
+            <div style="width: 100%;padding: 0.5rem;text-align: center;">
+                Final Value : {{finalResult()}}
             </div>
         </div>
     </div>

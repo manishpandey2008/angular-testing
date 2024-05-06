@@ -1,0 +1,50 @@
+button {
+    cursor: pointer;
+}
+
+.calendar {
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.days-header {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.row {
+    display: flex;
+}
+
+.day {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.other-month {
+    color: #ccc;
+}
+
+.selected {
+    background-color: #e0e0e0;
+}
+
+.date {
+    border: 1px solid gray;
+}
+
+.inRange{
+    background-color: rgb(7, 102, 7);
+    color: white;
+}
