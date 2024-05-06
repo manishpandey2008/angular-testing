@@ -47,6 +47,7 @@ import { TemplateRegistrationComponent } from './popup/template-registration/tem
 import { ColumnSearchComponent } from './column-search/column-search.component';
 import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calculator.component';
 import { ContentEditableModelDirective } from './dynamic-calculator/content-editable-model.directive';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { ContentEditableModelDirective } from './dynamic-calculator/content-edit
     TemplateRegistrationComponent,
     ColumnSearchComponent,
     DynamicCalculatorComponent,
-    ContentEditableModelDirective
+    ContentEditableModelDirective,
+    DateRangeComponent
   ],
   imports: [
     BrowserModule,
