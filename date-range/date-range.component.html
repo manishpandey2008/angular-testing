@@ -1,26 +1,34 @@
-<div class="calendar">
+<div class="calender-wrapper">
+    <div class="calendar-main" (click)="viewCalender=!viewCalender">
+        <div>{{startDate??defaultDate | date:'mediumDate'}}</div>
+        <div>To</div>
+        <div>{{endDate??defaultDate | date:'mediumDate'}}</div>
+    </div>
+</div>
+
+<div class="calendar" *ngIf="viewCalender">
     <div class="header">
-      <button (click)="previousMonth()">&#8249;</button>
-      <span>{{ currentMonth() | date: 'MMMM yyyy' }}</span>
-      <button (click)="nextMonth()">&#8250;</button>
+        <button (click)="previousMonth()">&#8249;</button>
+        <span>{{ currentMonth() | date: 'MMMM yyyy' }}</span>
+        <button (click)="nextMonth()">&#8250;</button>
     </div>
     <div class="days-header">
-      <span *ngFor="let day of daysOfWeek">{{ day }}</span>
+        <span *ngFor="let day of daysOfWeek">{{ day }}</span>
     </div>
     <div class="days">
-      <div *ngFor="let row of calendarRows" class="row">
-        <div *ngFor="let day of row" class="day" [class.other-month]="day.otherMonth">
-          <div class="date" (click)="selectDate(day)" [ngClass]="{'inRange': inBetweenSelectedDate(day.date)}">
-            <span>{{ day.number }}</span>
-          </div>
+        <div *ngFor="let row of calendarRows" class="row">
+            <div *ngFor="let day of row" class="day" [class.other-month]="day.otherMonth">
+                <div class="date" (click)="selectDate(day)" [ngClass]="{'inRange': inBetweenSelectedDate(day.date),'start-endNotation':day.date==startDate || day.date==endDate}">
+                    <span>{{ day.number }}</span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
+</div>
+<!-- 
 <div>
     Start Date : {{startDate}}
 </div>
 <div>
     End Date : {{endDate}}
-</div>
+</div> -->

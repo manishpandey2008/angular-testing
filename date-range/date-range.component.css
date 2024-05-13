@@ -4,7 +4,7 @@ button {
 
 .calendar {
     border: 1px solid #ccc;
-    width: 300px;
+    width: 20rem;
 }
 
 .header {
@@ -47,4 +47,18 @@ button {
 .inRange{
     background-color: rgb(7, 102, 7);
     color: white;
+}
+
+.calender-wrapper{
+    width: 100%;
+}
+.calendar-main{
+    width: 15vw;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+}
+.start-endNotation{
+    background-color: blue;
 }
