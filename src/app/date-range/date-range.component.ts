@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, signal } from '@angular/core';
 
 @Component({
   selector: 'app-date-range',
@@ -70,6 +70,13 @@ export class DateRangeComponent {
     let fromDate=new Date(this.startDate);
     let toDate=new Date(this.endDate);
     if((targetDate.getTime() <= toDate.getTime() && targetDate.getTime() >= fromDate.getTime())) return true;
+    return false;
+  }
+
+  isHighlight(targetDate:Date,event:ElementRef){
+    if(this.startDate==null)return false;
+    let fromDate=new Date(this.startDate);
+    if(targetDate.getTime() > fromDate.getTime()) return true;
     return false;
   }
 
