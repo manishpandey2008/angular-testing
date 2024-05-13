@@ -1,8 +1,8 @@
 <div class="calender-wrapper">
     <div class="calendar-main" (click)="viewCalender=!viewCalender">
-        <div>{{startDate??defaultDate | date:'mediumDate'}}</div>
+        <div>{{startDate?(startDate | date:'mediumDate'):'--:--:----'}}</div>
         <div>To</div>
-        <div>{{endDate??defaultDate | date:'mediumDate'}}</div>
+        <div>{{endDate?(defaultDate | date:'mediumDate'):'--:--:----'}}</div>
     </div>
 </div>
 
@@ -17,18 +17,12 @@
     </div>
     <div class="days">
         <div *ngFor="let row of calendarRows" class="row">
-            <div *ngFor="let day of row" class="day" [class.other-month]="day.otherMonth">
-                <div class="date" (click)="selectDate(day)" [ngClass]="{'inRange': inBetweenSelectedDate(day.date),'start-endNotation':day.date==startDate || day.date==endDate}">
+            <div *ngFor="let day of row" class="day" [class.other-month]="day.otherMonth" 
+                    [ngClass]="{'inRange': inBetweenSelectedDate(day.date),'start-endNotation':day.date==startDate || day.date==endDate}">
+                <div class="date" (click)="selectDate(day)" >
                     <span>{{ day.number }}</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- 
-<div>
-    Start Date : {{startDate}}
-</div>
-<div>
-    End Date : {{endDate}}
-</div> -->
