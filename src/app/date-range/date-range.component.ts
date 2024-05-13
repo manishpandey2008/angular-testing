@@ -13,6 +13,7 @@ export class DateRangeComponent {
 
   startDate:any=null;
   endDate:any=null;
+  defaultDate=new Date()
 
   ngOnInit() {
     // this.currentMonth = new Date();
@@ -71,6 +72,8 @@ export class DateRangeComponent {
     if((targetDate.getTime() <= toDate.getTime() && targetDate.getTime() >= fromDate.getTime())) return true;
     return false;
   }
+
+  viewCalender=false;
 
   isDateSelected(date: Date) {
     return false;
