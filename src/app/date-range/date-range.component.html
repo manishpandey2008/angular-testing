@@ -5,24 +5,18 @@
         <div>{{endDate?(defaultDate | date:'mediumDate'):'--:--:----'}}</div>
     </div>
 </div>
-
 <div class="calendar" *ngIf="viewCalender">
-    <div class="header">
-        <button (click)="previousMonth()">&#8249;</button>
-        <span>{{ currentMonth() | date: 'MMMM yyyy' }}</span>
-        <button (click)="nextMonth()">&#8250;</button>
-    </div>
-    <div class="days-header">
-        <span *ngFor="let day of daysOfWeek">{{ day }}</span>
-    </div>
-    <div class="days">
-        <div *ngFor="let row of calendarRows" class="row">
-            <div *ngFor="let day of row" class="day" [class.other-month]="day.otherMonth" 
-                    [ngClass]="{'inRange': inBetweenSelectedDate(day.date),'start-endNotation':day.date==startDate || day.date==endDate}">
-                <div class="date" (click)="selectDate(day)" >
-                    <span>{{ day.number }}</span>
-                </div>
-            </div>
+    @for (item of [1,2]; track item;let i=$index) {
+        <div>
+            <app-month-view 
+                [currentMonth]="getCuttentMonth(i)" 
+                [headerBtn]="{preBtn:i==0,nextBtn:i==1}"
+                [startDate]="startDate"
+                [endDate]="endDate"
+                (changeMonth)="changeMonth($event)"
+                (selectedDate)="selectDate($event)"
+                (changeMonthYear)="changeMonthYear($event)"
+            ></app-month-view>
         </div>
-    </div>
-</div>
+    }
+</div> 

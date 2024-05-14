@@ -1,53 +1,3 @@
-button {
-    cursor: pointer;
-}
-
-.calendar {
-    border: 1px solid #ccc;
-    width: 20rem;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-}
-
-.days-header {
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-
-.row {
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    margin-bottom: 0.1rem;
-}
-
-.day {
-    text-align: center;
-    cursor: pointer;
-    padding: 0.2rem;
-    color: #54708b
-}
-
-.other-month {
-    color: #ccc;
-}
-
-.selected {
-    background-color: #e0e0e0;
-}
-
-.inRange{
-    background-color: rgb(226, 226, 226);
-}
-
 .calender-wrapper{
     width: 100%;
 }
@@ -58,6 +8,13 @@ button {
     display: flex;
     justify-content: space-around;
 }
-.start-endNotation{
-    background-color: rgb(171, 238, 162);
+
+button {
+    cursor: pointer;
+}
+
+.calendar {
+   width: fit-content;
+   display: flex;
+   gap: 1rem;
 }
