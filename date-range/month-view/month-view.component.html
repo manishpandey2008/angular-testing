@@ -1,0 +1,59 @@
+<div class="calendar">
+    <div class="header">
+        <div>
+            @if (headerBtn.preBtn) {
+                <button (click)="previousMonth()">&#8249;</button>
+            }
+        </div>
+        <div>
+            <span (click)="showMonth=!showMonth;showYear=false">{{ currentMonth | date: 'MMMM' }}</span>
+            @if(showMonth){
+                <ng-container [ngTemplateOutlet]="monthYear" [ngTemplateOutletContext]="{info:{for:'month',dataList:monthList}}"></ng-container>
+            }
+        </div>
+        <div>
+            <span (click)="showMonth=false;showYear=!showYear">{{ currentMonth | date: 'YYYY' }}</span>
+            @if(showYear){
+                <ng-container [ngTemplateOutlet]="monthYear" [ngTemplateOutletContext]="{info:{for:'year',dataList:yearList}}"></ng-container>
+            }
+        </div>
+        <div>
+            @if (headerBtn.nextBtn) {
+                <button  (click)="nextMonth()">&#8250;</button>
+            }
+        </div>
+    </div>
+    <div class="days-header">
+        @for (dayName of daysOfWeek; track $index) {
+            <span>{{ dayName }}</span>
+        }
+    </div>
+    <div class="days">
+        @for (row of calendarRows; track $index) {
+            <div  class="row">
+                @for (day of row; track $index) {
+                    <div class="day" [class.other-month]="day.otherMonth" 
+                            [ngClass]="{
+                                'inRange': inBetweenSelectedDate(day),
+                                'start-endNotation':(day.date.getTime()==startDate?.getTime() || day.date.getTime()==endDate?.getTime()) && !day.otherMonth,
+                            }">
+                        <div class="date" (click)="selectDate(day)" [ngClass]="{'todayDate' : todayDate.getTime()===day.date.getTime()}">
+                            <span>{{ day.number }}</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<ng-template #monthYear let-info="info">
+    <div class="dropDown">
+       <div style="padding: 0.2rem;">
+            @for(item of info.dataList; track $index) {
+                <div (click)="changeMonthAndYear(info.for,item.value)" class="option">{{item.label}}</div>
+            }
+       </div>
+    </div>
+</ng-template>
+

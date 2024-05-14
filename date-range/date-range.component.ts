@@ -7,53 +7,24 @@ import { ChangeDetectorRef, Component, ElementRef, signal } from '@angular/core'
 })
 export class DateRangeComponent {
 
-  daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  calendarRows: {number:number,date:Date,otherMonth:boolean}[][] = [];
-  currentMonth=signal<Date>(new Date()) ;
-
   startDate:any=null;
   endDate:any=null;
   defaultDate=new Date()
+  viewCalender=false;
 
   ngOnInit() {
-    // this.currentMonth = new Date();
-    this.generateCalendar();
   }
 
-  generateCalendar() {
-    const firstDayOfMonth = new Date(this.currentMonth().getFullYear(), this.currentMonth().getMonth(), 1);
-    const lastDayOfMonth = new Date(this.currentMonth().getFullYear(), this.currentMonth().getMonth() + 1, 0);
-    const daysInMonth = lastDayOfMonth.getDate();
-    const firstDayOfWeek = firstDayOfMonth.getDay();
-
-    let date = new Date(firstDayOfMonth);
-    date.setDate(date.getDate() - firstDayOfWeek);
-
-    this.calendarRows = [];
-
-    for (let i = 0; i < 6; i++) {
-      const week = [];
-      for (let j = 0; j < 7; j++) {
-        week.push({
-          number: date.getDate(),
-          date: new Date(date),
-          otherMonth: date.getMonth() !== this.currentMonth().getMonth()
-        });
-        date.setDate(date.getDate() + 1);
-      }
-      this.calendarRows.push(week);
-    }
+  getCuttentMonth(index:number):Date{
+    let tempDate:Date =new Date(this.defaultDate);
+    tempDate.setMonth(tempDate.getMonth() + index);
+    return tempDate;
   }
 
-  previousMonth() {
-    this.currentMonth().setMonth(this.currentMonth().getMonth() - 1);
-    this.generateCalendar();
+  changeMonth(event:any){
+    this.defaultDate.setMonth(this.defaultDate.getMonth() + event['monthDiff'])
   }
 
-  nextMonth() {
-    this.currentMonth().setMonth(this.currentMonth().getMonth() + 1);
-    this.generateCalendar();
-  }
 
   selectDate(day: {number:number,date:Date,otherMonth:boolean}) {
     if(day.otherMonth )return;
@@ -63,26 +34,16 @@ export class DateRangeComponent {
       return
     }
     this.endDate=day.date;
+    this.viewCalender=false;
   }
 
-  inBetweenSelectedDate(targetDate:Date){
-    if(this.startDate==null || this.endDate==null)return false;
-    let fromDate=new Date(this.startDate);
-    let toDate=new Date(this.endDate);
-    if((targetDate.getTime() <= toDate.getTime() && targetDate.getTime() >= fromDate.getTime())) return true;
-    return false;
+  changeMonthYear(event:any){
+    if(event.type=='month'){
+      this.defaultDate.setMonth(event.value)
+    }else{
+      this.defaultDate.setFullYear(event.value)
+    }
+    // {type:type,value:value}
   }
 
-  isHighlight(targetDate:Date,event:ElementRef){
-    if(this.startDate==null)return false;
-    let fromDate=new Date(this.startDate);
-    if(targetDate.getTime() > fromDate.getTime()) return true;
-    return false;
-  }
-
-  viewCalender=false;
-
-  isDateSelected(date: Date) {
-    return false;
-  }
 }

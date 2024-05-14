@@ -48,6 +48,7 @@ import { ColumnSearchComponent } from './column-search/column-search.component';
 import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calculator.component';
 import { ContentEditableModelDirective } from './dynamic-calculator/content-editable-model.directive';
 import { DateRangeComponent } from './date-range/date-range.component';
+import { MonthViewComponent } from './date-range/month-view/month-view.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { DateRangeComponent } from './date-range/date-range.component';
     ColumnSearchComponent,
     DynamicCalculatorComponent,
     ContentEditableModelDirective,
-    DateRangeComponent
+    DateRangeComponent,
+    MonthViewComponent
   ],
   imports: [
     BrowserModule,
