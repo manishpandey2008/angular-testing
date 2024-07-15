@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.table-containar {
+    /* width: 40vw; */
+}
+
+td {
+    border: 1px solid gray;
+    width:2rem;
+}
+
+.table {
+    width: auto;
+    table-layout:auto;
+}
+
+.heade-div {
+    /* width: 100%; */
+    overflow: auto;
+    padding: 0.3rem;
+    resize: horizontal;
+    background-color: rgb(214, 214, 214);
+}
+
+.body-div {
+    padding: 0.3rem;
+    white-space: nowrap;
+    background-color: red;
+    overflow: hidden;
+    width: 10rem;
+    text-overflow: ellipsis;
+}
+
+.body-div::-webkit-resizer {
+    display: none;
+}
+
+.body-div::-moz-resizer {
+    display: none;
+}

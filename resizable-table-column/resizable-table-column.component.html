@@ -1,0 +1,26 @@
+<div class="table-containar">
+    <table class="table">
+        <thead class="thead">
+            <tr >
+                @for (item of headers; track $index) {
+                    <th>
+                        <div appResizableTable class="heade-div"  (resizeEnd)="onResizeEnd(item.field,$event)">{{item.label}}</div>
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (d of dataList; track $index) {
+                <tr>
+                    @for (f of headers; track $index) {
+                        <td >
+                            <div class="body-div" [ngStyle]="{'width': columnWidth.get(f.field)+'px'}">
+                                {{d[f.field]}}
+                            </div>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

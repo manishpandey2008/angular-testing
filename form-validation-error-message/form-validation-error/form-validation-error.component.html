@@ -1,0 +1,20 @@
+<div [formGroup]="mainForm">
+    <div>
+        <input type="text" formControlName="firstName">
+    </div>
+    <div>
+        <input type="text" formControlName="lastName">
+    </div>
+    <div>
+        <input type="number" formControlName="age">
+    </div>
+    <div>
+        <input type="text" formControlName="username">
+    </div>
+    <div>
+        <input type="text" formControlName="password">
+    </div>
+    <div>
+       <button (click)="formSubmit()">Submit</button>
+    </div>
+</div>

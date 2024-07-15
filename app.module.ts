@@ -49,6 +49,9 @@ import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calcula
 import { ContentEditableModelDirective } from './dynamic-calculator/content-editable-model.directive';
 import { DateRangeComponent } from './date-range/date-range.component';
 import { MonthViewComponent } from './date-range/month-view/month-view.component';
+import { ResizableTableColumnComponent } from './resizable-table-column/resizable-table-column.component';
+import { ResizableTableDirective } from './resizable-table-column/resizable-table.directive';
+import { FormValidationErrorComponent } from './form-validation-error-message/form-validation-error/form-validation-error.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +95,10 @@ import { MonthViewComponent } from './date-range/month-view/month-view.component
     DynamicCalculatorComponent,
     ContentEditableModelDirective,
     DateRangeComponent,
-    MonthViewComponent
+    MonthViewComponent,
+    ResizableTableColumnComponent,
+    ResizableTableDirective,
+    FormValidationErrorComponent
   ],
   imports: [
     BrowserModule,

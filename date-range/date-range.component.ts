@@ -34,7 +34,7 @@ export class DateRangeComponent {
       return
     }
     this.endDate=day.date;
-    this.viewCalender=false;
+    // this.viewCalender=false;
   }
 
   changeMonthYear(event:any){

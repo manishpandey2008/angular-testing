@@ -6,11 +6,11 @@
     </div>
 </div>
 <div class="calendar" *ngIf="viewCalender">
-    @for (item of [1,2]; track item;let i=$index) {
+    @for (item of [1,2,3]; track item;let i=$index) {
         <div>
             <app-month-view 
                 [currentMonth]="getCuttentMonth(i)" 
-                [headerBtn]="{preBtn:i==0,nextBtn:i==1}"
+                [headerBtn]="{preBtn:i==0,nextBtn:i==2}"
                 [startDate]="startDate"
                 [endDate]="endDate"
                 (changeMonth)="changeMonth($event)"
