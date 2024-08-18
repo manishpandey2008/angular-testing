@@ -10,7 +10,7 @@ export class FormValidationErrorComponent {
 
   mainForm=new FormGroup({
     firstName:new FormControl("", Validators.pattern("^[a-zA-Z0-9_ ]*$")),
-    lastName: new FormControl(""),
+    lastName: new FormControl("",Validators.minLength(10)),
     age:new FormControl("",[Validators.max(10)]),
     userName:new FormControl(""),
     password: new FormControl("")

@@ -52,6 +52,12 @@ import { MonthViewComponent } from './date-range/month-view/month-view.component
 import { ResizableTableColumnComponent } from './resizable-table-column/resizable-table-column.component';
 import { ResizableTableDirective } from './resizable-table-column/resizable-table.directive';
 import { FormValidationErrorComponent } from './form-validation-error-message/form-validation-error/form-validation-error.component';
+import { ChildFormGroupValidationComponent } from './child-form-group-validation/child-form-group-validation.component';
+import { SideNavResizableComponent } from './side-nav-resizable/side-nav-resizable.component';
+import { GuardTestModule } from './guard-test/guard-test.module';
+import { RouteMainComponent } from './guard-test/route-main-component';
+import { Component1 } from './guard-test/component-1';
+import { Component2 } from './guard-test/component-2';
 
 @NgModule({
   declarations: [
@@ -98,7 +104,9 @@ import { FormValidationErrorComponent } from './form-validation-error-message/fo
     MonthViewComponent,
     ResizableTableColumnComponent,
     ResizableTableDirective,
-    FormValidationErrorComponent
+    FormValidationErrorComponent,
+    ChildFormGroupValidationComponent,
+    SideNavResizableComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +115,8 @@ import { FormValidationErrorComponent } from './form-validation-error-message/fo
     OverlayModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GuardTestModule
   ],
   providers: [
     provideAngularQuery(new QueryClient())

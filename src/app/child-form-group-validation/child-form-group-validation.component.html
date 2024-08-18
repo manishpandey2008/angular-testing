@@ -1,0 +1,17 @@
+<div [formGroup]="formGroup">
+    <select formControlName="field1">
+        <option value="A">A</option>
+        <option value="B">B</option>
+    </select>
+    <div formGroupName="childField1">
+        <input type="text" formControlName="field1">
+        <input type="text" formControlName="field2">
+    </div>
+</div>
+
+<pre>
+    childField1: {{formGroup.get("childField1")?.valid}}
+    childField1 -> field1: {{formGroup.get("childField1")?.get('field1')?.valid}}
+    childField1 -> field2: {{formGroup.get("childField1")?.get('field2')?.valid}}
+</pre>
+
