@@ -3,12 +3,12 @@
 }
 
 .table-containar {
-    /* width: 40vw; */
+    width: 100%;
 }
 
 td {
     border: 1px solid gray;
-    width:2rem;
+    /* width:2rem; */
 }
 
 .table {

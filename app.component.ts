@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, model, OnInit, ViewChild } from '@angular/core';
 import { MenuItem } from './DirectivesCompositionAPI/directives/context-menu.directive';
 import { PopUpComponent } from './programmatically-rendering-components/pop-up/pop-up.component';
+import { BehaviorSubject, firstValueFrom, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,22 @@ export class AppComponent implements OnInit{
     console.log(`Selected: ${item}`);
   }
 
-  testDynamic(){
+  modelValue=model(false)
 
+  testFun(event:Event){
+    event.preventDefault()
+    this.modelValue.set(false)
   }
+
+  test$=new BehaviorSubject(false);
+  test=this.test$.asObservable();
+  async fun(){
+    this.test$.next(false)
+    setTimeout(()=>{
+      this.test$.next(true)
+    },5000);
+    let data=await firstValueFrom(this.test);
+    console.log("========");
+  }
+  testVal="sdkasdsad"
 }

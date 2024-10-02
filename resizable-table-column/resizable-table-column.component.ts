@@ -69,6 +69,7 @@ export class ResizableTableColumnComponent implements AfterViewInit{
     this.columnWidth.set(fieldName,newWidth);
   }
 
+
   change(fieldId:any){
     if(document.getElementById(fieldId)!=null){
       let elemnt:any=document.getElementById(fieldId)?.getBoundingClientRect();
