@@ -58,6 +58,7 @@ import { GuardTestModule } from './guard-test/guard-test.module';
 import { RouteMainComponent } from './guard-test/route-main-component';
 import { Component1 } from './guard-test/component-1';
 import { Component2 } from './guard-test/component-2';
+import { CacheingMainComponent } from './cacheing/cacheing-main.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { Component2 } from './guard-test/component-2';
     ResizableTableDirective,
     FormValidationErrorComponent,
     ChildFormGroupValidationComponent,
-    SideNavResizableComponent
+    SideNavResizableComponent,
+    CacheingMainComponent
   ],
   imports: [
     BrowserModule,

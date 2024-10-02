@@ -31,7 +31,10 @@ const routes: Routes = [
   {path:"popup-testing",component:PopupTestingComponent},
   {path:"column-serch",component:ColumnSearchComponent},
   {path:"dynamic-calculator",component:DynamicCalculatorComponent},
-  { path: 'route-access', loadChildren: () => import('./guard-test/guard-test.module').then(m => m.GuardTestModule) }
+  { path: 'route-access', loadChildren: () => import('./guard-test/guard-test.module').then(m => m.GuardTestModule) },
+
+  { path: 'i-frame', loadComponent: () => import('./iframe-imp/iframe-imp.component').then(m => m.IframeImpComponent) }
+
 ];
 
 @NgModule({

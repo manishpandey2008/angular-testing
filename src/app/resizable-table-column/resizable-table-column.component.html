@@ -4,7 +4,7 @@
             <tr >
                 @for (item of headers; track $index) {
                     <th>
-                        <div appResizableTable class="heade-div"  (resizeEnd)="onResizeEnd(item.field,$event)">{{item.label}}</div>
+                        <div appResizableTable class="heade-div"  >{{item.label}}</div>
                     </th>
                 }
             </tr>

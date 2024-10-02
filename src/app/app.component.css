@@ -1,2 +1,9 @@
 :host{
 }
+
+.test{
+    color: red;
+    &:hover:{
+        color: blue;
+    }
+}
