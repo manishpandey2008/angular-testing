@@ -59,6 +59,14 @@ import { RouteMainComponent } from './guard-test/route-main-component';
 import { Component1 } from './guard-test/component-1';
 import { Component2 } from './guard-test/component-2';
 import { CacheingMainComponent } from './cacheing/cacheing-main.component';
+import { NgTemplateLoad } from './ng-template-load/template-load.component';
+import { NavigationTest } from './navigationTest/navigation-test';
+import { NavigateParent } from './navigationTest/navigateParent';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
+import { CustomFieldConfig } from './custom-field-config/customFieldConfig.component';
+import { ChartTest } from './charts/chartTest.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -108,7 +116,13 @@ import { CacheingMainComponent } from './cacheing/cacheing-main.component';
     FormValidationErrorComponent,
     ChildFormGroupValidationComponent,
     SideNavResizableComponent,
-    CacheingMainComponent
+    CacheingMainComponent,
+    NgTemplateLoad,
+    NavigationTest,
+    NavigateParent,
+    InfiniteScrollComponent,
+    CustomFieldConfig,
+    ChartTest
   ],
   imports: [
     BrowserModule,
@@ -118,7 +132,8 @@ import { CacheingMainComponent } from './cacheing/cacheing-main.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    GuardTestModule
+    GuardTestModule,
+    InfiniteScrollModule
   ],
   providers: [
     provideAngularQuery(new QueryClient())

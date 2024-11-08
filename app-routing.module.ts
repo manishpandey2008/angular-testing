@@ -8,9 +8,14 @@ import { InputBindingInAngularRouterComponent } from './input-binding-in-angular
 import { PopupTestingComponent } from './popup/popup-testing/popup-testing.component';
 import { ColumnSearchComponent } from './column-search/column-search.component';
 import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calculator.component';
+import { StandalonParentComponent } from './standalone/standalon-parent/standalon-parent.component';
+import { NavigationTest } from './navigationTest/navigation-test';
+import { NavigateParent } from './navigationTest/navigateParent';
 
 const routes: Routes = [
   {path:"user-list",component:UserListComponent},
+  {path:"standalon-circular",component:StandalonParentComponent},
+
   // {path:"details/:id",component:UserDetailsComponent},
 
   {path:"details/:id",loadComponent :() => import('./standalone/user-details/user-details.component').then(m=>m.UserDetailsComponent)},
@@ -33,7 +38,8 @@ const routes: Routes = [
   {path:"dynamic-calculator",component:DynamicCalculatorComponent},
   { path: 'route-access', loadChildren: () => import('./guard-test/guard-test.module').then(m => m.GuardTestModule) },
 
-  { path: 'i-frame', loadComponent: () => import('./iframe-imp/iframe-imp.component').then(m => m.IframeImpComponent) }
+  { path: 'i-frame', loadComponent: () => import('./iframe-imp/iframe-imp.component').then(m => m.IframeImpComponent) },
+  { path: 'navigation-test',component:NavigateParent }
 
 ];
 
