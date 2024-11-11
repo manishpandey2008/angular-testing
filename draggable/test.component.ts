@@ -1,10 +1,7 @@
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component } from "@angular/core";
 
-
-
 @Component({
-    selector:'app-test-component',
+    selector:'app-Draggable-component',
     template:`
         <div>Test component</div>
         <div class="container">

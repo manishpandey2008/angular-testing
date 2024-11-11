@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +36,6 @@ import { SignalTestComponent } from './signal/signal-test/signal-test.component'
 import { ConnectionLinesComponent } from './connection-lines/connection-lines.component';
 import { ConnectingBlockComponent } from './connecting-block/connecting-block.component';
 import { FirstQuearyComponent } from './angular-query/first-queary/first-queary.component';
-import { QueryClient, provideAngularQuery } from '@tanstack/angular-query-experimental';
 import { ApiStateHandleComponent } from './angular-query/api-state-handle/api-state-handle.component';
 import { StateTestComponent } from './angular-query/state-test/state-test.component';
 import { InputBindingInAngularRouterComponent } from './input-binding-in-angular-router/input-binding-in-angular-router.component';
@@ -55,9 +54,6 @@ import { FormValidationErrorComponent } from './form-validation-error-message/fo
 import { ChildFormGroupValidationComponent } from './child-form-group-validation/child-form-group-validation.component';
 import { SideNavResizableComponent } from './side-nav-resizable/side-nav-resizable.component';
 import { GuardTestModule } from './guard-test/guard-test.module';
-import { RouteMainComponent } from './guard-test/route-main-component';
-import { Component1 } from './guard-test/component-1';
-import { Component2 } from './guard-test/component-2';
 import { CacheingMainComponent } from './cacheing/cacheing-main.component';
 import { NgTemplateLoad } from './ng-template-load/template-load.component';
 import { NavigationTest } from './navigationTest/navigation-test';
@@ -66,84 +62,76 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 import { CustomFieldConfig } from './custom-field-config/customFieldConfig.component';
 import { ChartTest } from './charts/chartTest.component';
-import { NgApexchartsModule } from 'ng-apexcharts';
 import { NotationEditor } from './notion-editor/notionEditor.component';
 import { DraggableListDirective } from './draggable/DraggableList.directive';
 import { DraggableTestComponent } from './draggable/test.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    DcApiTestComponent,
-    DropDownComponent,
-    ContextMenuDirective,
-    DirectiveComineDirective,
-    DiFirstComponent,
-    LoggerTestingComponent,
-    LoggerTesting2Component,
-    SuperCenteredComponent,
-    CustomDirectiveComponent,
-    HideAfterDirective,
-    CssBestPracticeComponent,
-    DynamicItemComponent,
-    StaticItemComponent,
-    NotPseudoClassComponent,
-    AnimationTestComponent,
-    AnimationTodoComponent,
-    ParentComponent,
-    ChildComponent,
-    PopUpComponent,
-    BaseComponent,
-    ComponentHostDirective,
-    TestOpupComponent,
-    FormTestingComponent,
-    ReactiveComponent,
-    Comp2Component,
-    SignalTestComponent,
-    ConnectionLinesComponent,
-    ConnectingBlockComponent,
-    FirstQuearyComponent,
-    ApiStateHandleComponent,
-    StateTestComponent,
-    InputBindingInAngularRouterComponent,
-    PopupComponent,
-    PopupTestingComponent,
-    TemplateRegistrationComponent,
-    ColumnSearchComponent,
-    DynamicCalculatorComponent,
-    ContentEditableModelDirective,
-    DateRangeComponent,
-    MonthViewComponent,
-    ResizableTableColumnComponent,
-    ResizableTableDirective,
-    FormValidationErrorComponent,
-    ChildFormGroupValidationComponent,
-    SideNavResizableComponent,
-    CacheingMainComponent,
-    NgTemplateLoad,
-    NavigationTest,
-    NavigateParent,
-    InfiniteScrollComponent,
-    CustomFieldConfig,
-    ChartTest,
-    NotationEditor,
-    DraggableListDirective,
-    DraggableTestComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    OverlayModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    GuardTestModule,
-    InfiniteScrollModule
-  ],
-  providers: [
-    provideAngularQuery(new QueryClient())
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        DcApiTestComponent,
+        DropDownComponent,
+        ContextMenuDirective,
+        DirectiveComineDirective,
+        DiFirstComponent,
+        LoggerTestingComponent,
+        LoggerTesting2Component,
+        SuperCenteredComponent,
+        CustomDirectiveComponent,
+        HideAfterDirective,
+        CssBestPracticeComponent,
+        DynamicItemComponent,
+        StaticItemComponent,
+        NotPseudoClassComponent,
+        AnimationTestComponent,
+        AnimationTodoComponent,
+        ParentComponent,
+        ChildComponent,
+        PopUpComponent,
+        BaseComponent,
+        ComponentHostDirective,
+        TestOpupComponent,
+        FormTestingComponent,
+        ReactiveComponent,
+        Comp2Component,
+        SignalTestComponent,
+        ConnectionLinesComponent,
+        ConnectingBlockComponent,
+        FirstQuearyComponent,
+        ApiStateHandleComponent,
+        StateTestComponent,
+        InputBindingInAngularRouterComponent,
+        PopupComponent,
+        PopupTestingComponent,
+        TemplateRegistrationComponent,
+        ColumnSearchComponent,
+        DynamicCalculatorComponent,
+        ContentEditableModelDirective,
+        DateRangeComponent,
+        MonthViewComponent,
+        ResizableTableColumnComponent,
+        ResizableTableDirective,
+        FormValidationErrorComponent,
+        ChildFormGroupValidationComponent,
+        SideNavResizableComponent,
+        CacheingMainComponent,
+        NgTemplateLoad,
+        NavigationTest,
+        NavigateParent,
+        InfiniteScrollComponent,
+        CustomFieldConfig,
+        ChartTest,
+        NotationEditor,
+        DraggableListDirective,
+        DraggableTestComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        OverlayModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        GuardTestModule,
+        InfiniteScrollModule], providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
