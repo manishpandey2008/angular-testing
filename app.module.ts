@@ -67,6 +67,9 @@ import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.compo
 import { CustomFieldConfig } from './custom-field-config/customFieldConfig.component';
 import { ChartTest } from './charts/chartTest.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NotationEditor } from './notion-editor/notionEditor.component';
+import { DraggableListDirective } from './draggable/DraggableList.directive';
+import { DraggableTestComponent } from './draggable/test.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +125,10 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     NavigateParent,
     InfiniteScrollComponent,
     CustomFieldConfig,
-    ChartTest
+    ChartTest,
+    NotationEditor,
+    DraggableListDirective,
+    DraggableTestComponent
   ],
   imports: [
     BrowserModule,
