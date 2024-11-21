@@ -65,6 +65,7 @@ import { ChartTest } from './charts/chartTest.component';
 import { NotationEditor } from './notion-editor/notionEditor.component';
 import { DraggableListDirective } from './draggable/DraggableList.directive';
 import { DraggableTestComponent } from './draggable/test.component';
+import { ObjectCompComponnet } from './object-compa/object-compa.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -122,7 +123,8 @@ import { DraggableTestComponent } from './draggable/test.component';
         ChartTest,
         NotationEditor,
         DraggableListDirective,
-        DraggableTestComponent
+        DraggableTestComponent,
+        ObjectCompComponnet
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
