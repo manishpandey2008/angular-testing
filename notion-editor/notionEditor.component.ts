@@ -86,6 +86,11 @@ export class NotationEditor implements OnInit, OnDestroy{
         ],
         "version": "2.30.6"
     }
+
+
+    value = "sdsd sd dskfsf dskfhsdf lskdf sdf";
+
+
   
     private initializeEditor(): void {
       this.editor = new EditorJS({
