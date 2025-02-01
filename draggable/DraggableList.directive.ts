@@ -52,8 +52,6 @@ export class DraggableListDirective{
     const movedItem = itemList[sourceIndex];
     itemList.splice(sourceIndex, 1);
     itemList.splice(targetIndex, 0, movedItem);
-    console.log("==============",itemList);
-
     this.reordered.emit(itemList);
   }
 

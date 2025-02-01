@@ -7,3 +7,11 @@
         color: blue;
     }
 }
+
+
+  .circle {
+    transform: rotate(-90deg);
+  }
+  
+
+  

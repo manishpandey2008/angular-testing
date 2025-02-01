@@ -1,21 +1,35 @@
-import { Component, model, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, model, OnDestroy, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { MenuItem } from './DirectivesCompositionAPI/directives/context-menu.directive';
 import { PopUpComponent } from './programmatically-rendering-components/pop-up/pop-up.component';
-import { BehaviorSubject, firstValueFrom, Subject } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, from, Observable, of, Subject } from 'rxjs';
+import { UserInactivityService } from './user-inactivity/user-inactivity.service';
+import { UserInactivity2Service } from './user-inactivity/user-inactivity2.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,OnDestroy{
+
+  constructor(private userInactivity2Service:UserInactivity2Service){}
+
+
+  list=["Item1","Item2","Item3","Item3-beta","Item4"]
+  accessList=["Item1","Item3"]
 
 
   ngOnInit(): void {
+    // this.userInactivityService.printItem();
+    this.putValueInOption()
+    this.createChannel();
+    this.changeItem()
+    // this.startTimer();
   }
 
   @ViewChild(PopUpComponent) popUp!:PopUpComponent;
 
+  
   contextMenuItems: MenuItem[] = [
     {
       label: 'Option 1',
@@ -69,4 +83,82 @@ export class AppComponent implements OnInit{
     console.log("========");
   }
   testVal="sdkasdsad"
+
+  @HostListener('document:mousemove', ['$event'])
+  @HostListener('document:keyup', ['$event'])
+  onMouseMove(event: MouseEvent) {
+      this.userInactivity2Service.resetTimer()
+  }
+
+  channel!:BroadcastChannel;
+  createChannel(){
+
+    // console.log("=========Started===========");
+    
+    // this.channel=new BroadcastChannel("testChnell");
+    // this.channel.addEventListener('message', (event) => {
+    //   console.log('Message received:', event.data);
+    // });
+  }
+
+  x=10;
+  changeItem(){
+  
+    // this.channel.postMessage({ message: 'My name is Pandey' });
+    
+
+    // console.log('BroadcastChannel supported:', 'BroadcastChannel' in window);
+    // this.x++;
+    // this.userInactivityService.addValue(this.x)
+  }
+
+
+
+
+
+  ngOnDestroy(): void {
+    console.log("=======ngOnDestroy=============");
+    
+    this.userInactivity2Service.clearInterval();
+    this.userInactivity2Service.closeBroadcastChannel();
+    clearInterval(this.interval); // Clear the interval when the component is destroyed
+
+  }
+
+  // --------------------------Circular moment---------------
+
+  timeLeft = 15; 
+  totalTime = 15;
+  strokeOffset = 0; 
+  interval: any;
+  // startTimer(): void {
+  //   const circumference = 2 * Math.PI * 90; 
+  //   this.interval = setInterval(() => {
+  //     const offset = circumference - (this.timeLeft / this.totalTime) * circumference;
+  //     this.strokeOffset = offset;
+  //     console.log("=====offset=======",offset,this.timeLeft / this.totalTime);
+      
+  //     this.timeLeft--;
+  //     if (this.timeLeft < 0) {
+  //       clearInterval(this.interval);
+  //     }
+  //   }, 1000);
+  // }
+
+
+  option:{[k:string]:WritableSignal<any>}={}
+
+  putValueInOption(){
+    this.option['name']=signal(of([]));
+  }
+
+  change1(){
+    let val=[{label:"Item1"},{label:"Item2"},{label:"Item3"},{label:"Item4"}]
+    this.option['name'].set(of(val));
+  }
+  change2(){
+    let val=[{label:"Item5"},{label:"Item6"},{label:"Item7"},{label:"Item8"}]
+    this.option['name'].set(of(val));
+  }
+
 }

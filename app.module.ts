@@ -66,6 +66,10 @@ import { NotationEditor } from './notion-editor/notionEditor.component';
 import { DraggableListDirective } from './draggable/DraggableList.directive';
 import { DraggableTestComponent } from './draggable/test.component';
 import { ObjectCompComponnet } from './object-compa/object-compa.component';
+import { TopNavEditorComponent } from './topNavEditor/topNavEditor.component';
+import { PopoverContentComponent } from './popover-content/popover-content.component';
+import { UserInactivityComponent } from './user-inactivity/user-inactivity.component';
+import { ClauseTableComponent } from './clause-table/clauseTable.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -124,7 +128,11 @@ import { ObjectCompComponnet } from './object-compa/object-compa.component';
         NotationEditor,
         DraggableListDirective,
         DraggableTestComponent,
-        ObjectCompComponnet
+        ObjectCompComponnet,
+        TopNavEditorComponent,
+        PopoverContentComponent,
+        UserInactivityComponent,
+        ClauseTableComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
