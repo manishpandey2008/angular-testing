@@ -1,0 +1,15 @@
+.wrapper{
+    display: flex;
+    justify-content: left;
+    align-items: start;
+    gap: 2rem;
+    width: 40vw;
+}
+
+.popup{
+    width: 20vw;
+}
+
+.whiteSpaceRemove{
+    white-space: nowrap;
+}

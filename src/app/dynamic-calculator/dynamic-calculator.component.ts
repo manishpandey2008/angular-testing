@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, HostListener, Renderer2, signal } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamic-calculator',
@@ -36,6 +37,15 @@ export class DynamicCalculatorComponent {
       fieldName: "field5"
     }
   ]
+
+
+  formulaForm=new FormGroup({
+    formulas:new FormArray([])
+  })
+
+  get formulas():FormArray{
+    return this.formulaForm.get("formulas") as FormArray;
+  } 
 
   finalResult=signal<any>(0.0)
 
@@ -82,6 +92,14 @@ export class DynamicCalculatorComponent {
     //   const before = textnode.splitText(this.cursorIndex);
     //   textnode.parentNode?.insertBefore(inputElement, before);
     // }
+  }
+
+  addCondition(){
+    let obj=new FormGroup({
+      condition:new FormControl(''),
+      formula:new FormControl('')
+    })
+    this.formulas.push(obj);
   }
 
 

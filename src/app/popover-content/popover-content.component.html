@@ -1,0 +1,6 @@
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="triggerOrigin"
+  [cdkConnectedOverlayOpen]="isView" [cdkConnectedOverlayPositions]="overlayPosition">
+  <div [ngClass]="customCss"  (mouseleave)="hideContent($event)" #parentDiv>
+    <ng-content></ng-content>
+  </div>
+</ng-template>

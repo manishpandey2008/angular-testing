@@ -32,25 +32,42 @@
                         }
                     </div>
                 </div>
+
+                <div [formGroup]="formulaForm">
+                    <div formArrayName="formulas">
+                        @for (item of formulas.controls; track $index) {
+                            <div style="margin-bottom: 0.5rem;">
+                                <div class="">
+                                    @if($index!=0){
+                                        <span>else</span>   
+                                    }
+                                     <span>if</span>   
+                                    <input type="text" >
+                                </div>  
+                                <div class="">
+                                    <textarea name="" id=""></textarea>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                
+                <button (click)="addCondition()">Add</button>
+
+                
                 <!-- Formula Field -->
-                <div class="dc-formula section">
+                <!-- <div class="dc-formula section">
                     <div class="formula-builder-section">
                         <div class="formula-div"  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="editableDiv">
-                        
                         </div>
                     </div>
-                    
                 </div>
-                <!-- Condition Area -->
                 <div class="dc-formula section">
                     <div class="formula-builder-section">
                         <div class="conditions-div"  contenteditable appContentEditableModel  (cursorIndexChange)="handleCursorIndexChange($event)" id="conditionalDiv">
-                        
                         </div>
                     </div>
-                    
-                </div>
-
+                </div> -->
               
             </div>
             <div class="dc-footer">
