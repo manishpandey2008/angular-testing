@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit } from "@angular/core";
 import { data } from "./data";
 import { FormArray, FormControl, FormGroup } from "@angular/forms";
 
@@ -11,7 +11,9 @@ import { FormArray, FormControl, FormGroup } from "@angular/forms";
     styleUrls:['./clauseTable.component.css']
 })
 export class ClauseTableComponent implements OnInit{
-    data:any[]=data;
+    data=data;
+    selectedItemIndex={i:null,j:null}
+    dropedItemIndex={i:null,j:null}
 
     // "clauseHeading": "PAYMENT TERM",
 
@@ -23,22 +25,23 @@ export class ClauseTableComponent implements OnInit{
         return this.formGroup.get('clauseList') as FormArray;
     }
 
+    constructor(private el: ElementRef){}
+
     ngOnInit(): void {
         this.createGroup(this.data);
     }
 
-
-    createGroup(data:any[]){
+    createGroup(data:Map<string,any[]>){
         this.clauseList.clear();
         const dataMap:Map<string,any[]>=new Map();
-        data.forEach(e=>{
-            dataMap.set(e['clauseHeading'],[...dataMap.get(e['clauseHeading'])??[], e])
-        })
+        for (const k of Object.keys(this.data)) {
+            dataMap.set(k,this.data[k]);
+        }
         this.createFormGroup(dataMap);
     }
 
     createFormGroup(dataMap:Map<string,any[]>){
-        const objKeys=Object.keys(this.data[0]);
+        const objKeys=Object.keys(dataMap.get("PAYMENT TERM")?.at(0));
         for (const [key, value] of dataMap) {
            const tempGroup=new FormGroup({
                 groupName:new FormControl(key),
@@ -54,16 +57,37 @@ export class ClauseTableComponent implements OnInit{
         }
     }
 
-    getChildClauseList(groupName:any,index:any):FormArray{
+    getChildClauseList(index:any):FormArray{
         return this.clauseList.at(index).get("list") as FormArray;
     }
 
+    dragstart(indexI:any,indexJ:any,event: DragEvent) {
+        this.selectedItemIndex={i:indexI,j:indexJ}
 
-    onItemsReordered(updatedItems: any[]) {
-        console.log(updatedItems);
-        this.createGroup(updatedItems);
+        // const dragImage = new Image(); // Creates an empty image to prevent default ghost image
+        const target = event.target as HTMLElement;
+        // event.dataTransfer?.setDragImage(dragImage, 0, 0);
+        // Optionally, add a class for styles during dragging
 
-        // this.items = [...updatedItems];
+        target?.classList.add('dragging');
+        console.log("Start:- I="+indexI+", J="+indexJ);
+
+        // console.log(target);
+
       }
+
+    dragenter(indexI:any,indexJ:any){
+        this.dropedItemIndex={i:indexI,j:indexJ}
+    }
+
+    dragend(){
+        if(this.selectedItemIndex.j==this.dropedItemIndex.j && this.selectedItemIndex.i==this.dropedItemIndex.i) return;
+        if(this.selectedItemIndex.j!=undefined && this.selectedItemIndex.j!=null && this.dropedItemIndex.j!=null)
+        {
+            const selectedControls=this.getChildClauseList(this.selectedItemIndex.i).controls.splice(this.selectedItemIndex.j,1);
+            const addedControls =selectedControls[0];
+            this.getChildClauseList(this.dropedItemIndex.i).controls.splice(this.dropedItemIndex.j,0,addedControls);
+        }
+    }
 
 }

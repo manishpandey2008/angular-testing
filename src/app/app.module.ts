@@ -70,6 +70,7 @@ import { TopNavEditorComponent } from './topNavEditor/topNavEditor.component';
 import { PopoverContentComponent } from './popover-content/popover-content.component';
 import { UserInactivityComponent } from './user-inactivity/user-inactivity.component';
 import { ClauseTableComponent } from './clause-table/clauseTable.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -132,7 +133,7 @@ import { ClauseTableComponent } from './clause-table/clauseTable.component';
         TopNavEditorComponent,
         PopoverContentComponent,
         UserInactivityComponent,
-        ClauseTableComponent
+        ClauseTableComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
@@ -141,6 +142,7 @@ import { ClauseTableComponent } from './clause-table/clauseTable.component';
         ReactiveFormsModule,
         BrowserAnimationsModule,
         GuardTestModule,
+        DragDropModule,
         InfiniteScrollModule], providers: [
         provideHttpClient(withInterceptorsFromDi())
     ] })

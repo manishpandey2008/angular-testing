@@ -20,6 +20,19 @@ export class DraggableListDirective{
       event.dataTransfer.setData('text/plain',this.index()+"");
       event.dataTransfer.effectAllowed = 'move';
     }
+    // Set the custom drag image
+
+    // const dragImage = this.el.nativeElement.cloneNode(true) as HTMLElement;
+    // dragImage.style.position = 'absolute';
+    // dragImage.style.top = '-9999px'; // Hide the clone off-screen
+    // dragImage.style.backgroundColor = 'red'; // Hide the clone off-screen
+
+    // document.body.appendChild(dragImage);
+
+    // // Set the custom drag image
+    // event.dataTransfer?.setDragImage(dragImage, 0, 0);
+
+
     this.renderer.addClass(this.el.nativeElement, 'dragging');
   }
 

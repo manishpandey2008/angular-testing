@@ -4,6 +4,7 @@ import { PopUpComponent } from './programmatically-rendering-components/pop-up/p
 import { BehaviorSubject, firstValueFrom, from, Observable, of, Subject } from 'rxjs';
 import { UserInactivityService } from './user-inactivity/user-inactivity.service';
 import { UserInactivity2Service } from './user-inactivity/user-inactivity2.service';
+import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -160,5 +161,32 @@ export class AppComponent implements OnInit,OnDestroy{
     let val=[{label:"Item5"},{label:"Item6"},{label:"Item7"},{label:"Item8"}]
     this.option['name'].set(of(val));
   }
+  
 
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  drop() {
+
+    console.log("====Drop========");
+
+    // moveItemInArray(this.numbers, event.previousIndex, event.currentIndex);
+  }
+
+  enter() {
+    console.log("====enter========");
+
+    // moveItemInArray(this.numbers, event.previousIndex, event.currentIndex);
+  }
+
+  start(){
+    console.log("==========Start=========");
+  }
+
+  /**
+   * Predicate function that only allows even numbers to be
+   * sorted into even indices and odd numbers at odd indices.
+   */
+  sortPredicate(index: number, item: CdkDrag<number>) {
+    return (index + 1) % 2 === item.data % 2;
+  }
 }
