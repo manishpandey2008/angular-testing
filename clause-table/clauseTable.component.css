@@ -1,0 +1,44 @@
+[draggable="true"] {
+    cursor: grab;
+  }
+  
+  [draggable="true"]:active {
+    opacity: 0.8;
+    border: 2px dashed #007bff;
+    background-color: red;
+  }
+
+
+  input,textarea{
+    border: 0px;
+  }
+
+
+  /* app.component.css */
+.draggable {
+    cursor: grab;
+    background-color: red;
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .draggable:active {
+    cursor: grabbing;
+    background-color: red;
+    margin: 10px;
+
+    opacity: 1 !important;
+    transform: scale(1.05);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .draggable.dragging {
+    opacity: 0.8;
+  }
+  
+
+  

@@ -124,7 +124,65 @@
  </div> -->
 
 
- <ClauseTable></ClauseTable>
+ <!-- <ClauseTable></ClauseTable> -->
+
+
+<!--  
+ <div
+ cdkDropList
+ class="example-list"
+ (cdkDropListDropped)="start()"
+ (cdkDropListEntered)="enter()"
+
+ >
+ @for (number of numbers; track number) {
+   <div
+     class="example-box"
+     draggable="true"
+      (dragleave)="drop()"
+     (dragenter)="enter()"
+     cdkDrag>{{number}}</div>
+ }
+</div> -->
+
+
+<!-- <div class="draggable" draggable="true">Drag Me</div>
+
+<div class="dropzone">Drop Here</div> -->
+
+<!-- <div [formGroup]="numberFormGroup">
+  <input type="number" formControlName="numberFormControl">
+</div> -->
+
+
+<!-- <json-compapir></json-compapir> -->
+
+<!-- <app-pipe-vs-function></app-pipe-vs-function> -->
+
+<!-- <app-textarea-text-highlight></app-textarea-text-highlight> -->
+
+
+<div [formGroup]="tempFormGroup">
+
+  <div formArrayName="list">
+
+    @for (item of itemList.controls; track $index) {
+      <div [formGroupName]="$index">
+        <input type="text" formControlName="item1" placeholder="Item 1">
+        <input type="text"  formControlName="item2" placeholder="Item 2">
+        <input type="text"  formControlName="item3" placeholder="Item 3">
+
+      </div>
+    }
+    
+    <button (click)="addForm()">Add More</button>
+
+  </div>
+
+</div>
+
+<button (click)="check()">Check</button>
+
 
  
 

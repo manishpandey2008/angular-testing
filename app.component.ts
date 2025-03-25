@@ -4,6 +4,8 @@ import { PopUpComponent } from './programmatically-rendering-components/pop-up/p
 import { BehaviorSubject, firstValueFrom, from, Observable, of, Subject } from 'rxjs';
 import { UserInactivityService } from './user-inactivity/user-inactivity.service';
 import { UserInactivity2Service } from './user-inactivity/user-inactivity2.service';
+import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit,OnDestroy{
     this.createChannel();
     this.changeItem()
     // this.startTimer();
+    this.testFunInputNumber()
   }
 
   @ViewChild(PopUpComponent) popUp!:PopUpComponent;
@@ -160,5 +163,90 @@ export class AppComponent implements OnInit,OnDestroy{
     let val=[{label:"Item5"},{label:"Item6"},{label:"Item7"},{label:"Item8"}]
     this.option['name'].set(of(val));
   }
+  
+
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  drop() {
+
+    console.log("====Drop========");
+
+    // moveItemInArray(this.numbers, event.previousIndex, event.currentIndex);
+  }
+
+  enter() {
+    console.log("====enter========");
+
+    // moveItemInArray(this.numbers, event.previousIndex, event.currentIndex);
+  }
+
+  start(){
+    console.log("==========Start=========");
+  }
+
+  /**
+   * Predicate function that only allows even numbers to be
+   * sorted into even indices and odd numbers at odd indices.
+   */
+  sortPredicate(index: number, item: CdkDrag<number>) {
+    return (index + 1) % 2 === item.data % 2;
+  }
+
+
+  numberFormGroup=new FormGroup({
+    numberFormControl:new FormControl(0)
+  })
+
+  get numberFormControl():FormControl{
+    return  this.numberFormGroup.get("numberFormControl") as FormControl;
+  }
+
+  testFunInputNumber(){
+    this.numberFormControl.valueChanges.subscribe((resp:any)=>{
+      var temp = resp.toString();
+      if(/\d+(\.\d+)?/.test(temp)) { 
+          var lastNum = parseInt(temp[temp.length - 1]);
+      }
+
+      
+      
+      this.numberFormControl.patchValue(resp.toFixed(2),{emitEvent:false})
+    })
+  }
+
+  tempFormGroup=new FormGroup({
+    list:new FormArray([])
+  })
+
+  get itemList():FormArray{
+    return this.tempFormGroup.get("list") as FormArray;
+  }
+
+  addForm(){
+    let obj=new FormGroup({
+      item1:new FormControl("",[Validators.required,Validators.maxLength(30)]),
+      item2: new FormControl("",[Validators.required]),
+      item3: new FormControl("",[Validators.required]),
+    })
+    this.itemList.push(obj);
+  }
+
+  check(){
+    for(let fg of this.itemList.controls){
+      for(let fieldName of ["item1","item2","item3"]){
+        if(!fg.get(fieldName)?.valid){
+          let errors=fg.get(fieldName)?.errors;
+          if(fieldName=='item1' && errors!=null && errors['maxlength']){
+            console.log(fieldName +" lenth more !");
+            return;
+          }
+          console.log(fieldName +" is required !");
+          return;
+        }
+      }
+    }
+
+  }
+
 
 }

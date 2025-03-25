@@ -1,26 +1,24 @@
 <div  [formGroup]="formGroup">
     <div formArrayName="clauseList">
-        @for (item of clauseList.controls; track $index; let i= $index) {
-            <div [formGroupName]="i" style="display: flex;">
+        @for (item of clauseList.controls; track item; let i= $index) {
+            <div [formGroupName]="i" style="display: flex; border-bottom: 1px solid red;">
                 <input type="text" name="" id="" formControlName="groupName">
                 
                 
                 <div formArrayName="list" style="display: flex;flex-direction: column;" >
-                    @for (childitem of getChildClauseList(item.get('groupName')?.value,i).controls; track $index; let j=$index) {
-                        <div class="" [formGroupName]="j" style="display: flex;"
-                            taomishUiDraggableList
-                            [items]="data"
-                            [index]="i"
-                            (reordered)="onItemsReordered($event)" 
+                    @for (childitem of getChildClauseList(i).controls; track childitem; let j=$index) {
+    <div class="" [formGroupName]="j" style="display: flex;  border: 2px dashed white;cursor: move;"
+    draggable="true"
+                            (dragstart)="dragstart(i,j,$event)"
+                            (dragenter)="dragenter(i,j)"
+                            (dragend)="dragend()"
                         >
-                            <input type="text" name="" id="" formControlName="clauseCode">
-                            <input type="text" name="" id="" formControlName="clauseCategory">
+                            <input type="text" name="" id=""  readonly formControlName="clauseCode">
+                            <input type="text" name="" id="" formControlName="clauseHeading">
                             <textarea name="" id=""  formControlName="clauseDescription"></textarea>
                         </div>
                     }
                 </div>
-
-
             </div>
         }
     </div>
