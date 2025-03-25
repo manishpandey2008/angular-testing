@@ -71,6 +71,11 @@ import { PopoverContentComponent } from './popover-content/popover-content.compo
 import { UserInactivityComponent } from './user-inactivity/user-inactivity.component';
 import { ClauseTableComponent } from './clause-table/clauseTable.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { JsonCompairComponent } from './json-compair/jsonCompair.component';
+import { PipeVsFunctionComponent } from './pipeVsFunction/pipeVsFunction.component';
+import { GetNamePipe } from './pipeVsFunction/date-range.pipe';
+import { TextAreaHighlightComponent } from './textAreaHighlight/textAreaHighlight.component';
+import { HighlightedPipe } from './textAreaHighlight/overall-status.pipe';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -134,6 +139,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         PopoverContentComponent,
         UserInactivityComponent,
         ClauseTableComponent,
+        JsonCompairComponent,
+        PipeVsFunctionComponent,
+        GetNamePipe,
+        TextAreaHighlightComponent,
+        HighlightedPipe
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,

@@ -8,7 +8,7 @@
                 <div formArrayName="list" style="display: flex;flex-direction: column;" >
                     @for (childitem of getChildClauseList(i).controls; track childitem; let j=$index) {
     <div class="" [formGroupName]="j" style="display: flex;  border: 2px dashed white;cursor: move;"
-                            taomishUiDraggableList
+    draggable="true"
                             (dragstart)="dragstart(i,j,$event)"
                             (dragenter)="dragenter(i,j)"
                             (dragend)="dragend()"
@@ -23,10 +23,3 @@
         }
     </div>
 </div>
-
-
-<!-- <div style="height: 10vh;overflow-y: auto;">
-    <pre>
-        {{formGroup.value | json}}
-    </pre>
-</div> -->

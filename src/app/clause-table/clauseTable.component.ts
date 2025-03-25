@@ -2,9 +2,6 @@ import { Component, ElementRef, OnInit } from "@angular/core";
 import { data } from "./data";
 import { FormArray, FormControl, FormGroup } from "@angular/forms";
 
-
-
-
 @Component({
     selector:'ClauseTable',
     templateUrl:'./clauseTable.component.html',
@@ -41,7 +38,7 @@ export class ClauseTableComponent implements OnInit{
     }
 
     createFormGroup(dataMap:Map<string,any[]>){
-        const objKeys=Object.keys(dataMap.get("PAYMENT TERM")?.at(0));
+        const objKeys=Object.keys(dataMap.get(Object.keys(dataMap)[0])?.at(0));
         for (const [key, value] of dataMap) {
            const tempGroup=new FormGroup({
                 groupName:new FormControl(key),
