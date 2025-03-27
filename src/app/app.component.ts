@@ -203,16 +203,22 @@ export class AppComponent implements OnInit,OnDestroy{
 
   testFunInputNumber(){
     this.numberFormControl.valueChanges.subscribe((resp:any)=>{
-      var temp = resp.toString();
-      if(/\d+(\.\d+)?/.test(temp)) { 
-          var lastNum = parseInt(temp[temp.length - 1]);
+      if(this.countDecimalPlaces(resp)>2){
+        const factor = Math.pow(10, 2);
+        const truncated = Math.trunc(resp * factor) / factor;
+        this.numberFormControl.patchValue(truncated.toFixed(2),{emitEvent:false})
       }
-
-      
-      
-      this.numberFormControl.patchValue(resp.toFixed(2),{emitEvent:false})
     })
   }
+  countDecimalPlaces(number:any) {
+    const numberAsString = number.toString();
+    if (numberAsString.includes('.')) {
+      return numberAsString.split('.')[1].length;
+    } else {
+      return 0;
+    }
+  }
+
 
   tempFormGroup=new FormGroup({
     list:new FormArray([])
