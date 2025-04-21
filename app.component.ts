@@ -253,6 +253,23 @@ export class AppComponent implements OnInit,OnDestroy{
     }
 
   }
+  
+  countRequest=0;
+  timeOut:any=undefined;
+  timeOutTest(){
+    if(this.timeOut)clearTimeout(this.timeOut);
+    this.timeOut=setTimeout(()=>{
+      console.log("==========",this.countRequest);
+      this.countRequest++;
+    },1000);
+  }
 
-
+ colors = new Set<string>();
+  generateUniqueHexColors(count: number) {
+    while (this.colors.size < count) {
+      const color = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+      this.colors.add(color);
+    }
+    console.log(Array.from(this.colors));
+  }
 }

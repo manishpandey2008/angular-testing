@@ -11,6 +11,7 @@ import { DynamicCalculatorComponent } from './dynamic-calculator/dynamic-calcula
 import { StandalonParentComponent } from './standalone/standalon-parent/standalon-parent.component';
 import { NavigationTest } from './navigationTest/navigation-test';
 import { NavigateParent } from './navigationTest/navigateParent';
+import { StandComp1Component } from './standalonComponentTesting/stand-comp1/stand-comp1.component';
 
 const routes: Routes = [
   {path:"user-list",component:UserListComponent},
@@ -37,10 +38,10 @@ const routes: Routes = [
   {path:"column-serch",component:ColumnSearchComponent},
   {path:"dynamic-calculator",component:DynamicCalculatorComponent},
   { path: 'route-access', loadChildren: () => import('./guard-test/guard-test.module').then(m => m.GuardTestModule) },
-
   { path: 'i-frame', loadComponent: () => import('./iframe-imp/iframe-imp.component').then(m => m.IframeImpComponent) },
-  { path: 'navigation-test',component:NavigateParent }
-
+  { path: 'navigation-test',component:NavigateParent },
+  
+  { path: 'standalon-test',loadComponent: () => import('./standalonComponentTesting/stand-comp1/stand-comp1.component').then(m => m.StandComp1Component)}
 ];
 
 @NgModule({

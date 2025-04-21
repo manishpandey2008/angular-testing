@@ -76,6 +76,10 @@ import { PipeVsFunctionComponent } from './pipeVsFunction/pipeVsFunction.compone
 import { GetNamePipe } from './pipeVsFunction/date-range.pipe';
 import { TextAreaHighlightComponent } from './textAreaHighlight/textAreaHighlight.component';
 import { HighlightedPipe } from './textAreaHighlight/overall-status.pipe';
+import { Test1Component } from './state-management/test1.component';
+import { Test2Component } from './state-management/test2.component';
+import { Test3Component } from './state-management/test3.component';
+import { StandComp2Component } from './standalonComponentTesting/stand-comp2/stand-comp2.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -143,7 +147,11 @@ import { HighlightedPipe } from './textAreaHighlight/overall-status.pipe';
         PipeVsFunctionComponent,
         GetNamePipe,
         TextAreaHighlightComponent,
-        HighlightedPipe
+        HighlightedPipe,
+        Test1Component,
+        Test2Component,
+        Test3Component,
+        StandComp2Component
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
