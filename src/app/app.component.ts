@@ -5,7 +5,7 @@ import { BehaviorSubject, firstValueFrom, from, Observable, of, Subject } from '
 import { UserInactivityService } from './user-inactivity/user-inactivity.service';
 import { UserInactivity2Service } from './user-inactivity/user-inactivity2.service';
 import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators , FormControlStatus} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -271,5 +271,33 @@ export class AppComponent implements OnInit,OnDestroy{
       this.colors.add(color);
     }
     console.log(Array.from(this.colors));
+  }
+
+
+  statusCheckFormGroup=new FormGroup({
+    field1:new FormControl(""),
+    field2:new FormControl("")
+  })
+  xVal=signal(false)
+
+  addPendingStatus(){
+    this.statusCheckFormGroup.get("field1")?.markAsPending();
+    
+  }
+
+  removePendingStatus(){
+    this.statusCheckFormGroup.get("field1")?.updateValueAndValidity();
+
+  }
+
+
+  saveButton(){
+      console.log("==================",this.statusCheckFormGroup.status);
+
+      this.statusCheckFormGroup.statusChanges.subscribe(res=>{
+      console.log(res);
+      
+      this.xVal.set(res == 'PENDING')
+    })
   }
 }

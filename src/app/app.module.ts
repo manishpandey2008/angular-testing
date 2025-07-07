@@ -80,6 +80,10 @@ import { Test1Component } from './state-management/test1.component';
 import { Test2Component } from './state-management/test2.component';
 import { Test3Component } from './state-management/test3.component';
 import { StandComp2Component } from './standalonComponentTesting/stand-comp2/stand-comp2.component';
+import { InfiniteBatchDataLoader } from './infinite-batch-data-loader/infiniteBatchDataLoader.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AddLoaderOnDependentField } from './addloaderondependentfield/addLoaderOnDependetField.component';
+import { SelectLoaderComponent } from './addloaderondependentfield/selectLoader.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -151,9 +155,13 @@ import { StandComp2Component } from './standalonComponentTesting/stand-comp2/sta
         Test1Component,
         Test2Component,
         Test3Component,
-        StandComp2Component
+        StandComp2Component,
+        InfiniteBatchDataLoader,
+        AddLoaderOnDependentField,
+        SelectLoaderComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
+        ScrollingModule,
         AppRoutingModule,
         OverlayModule,
         FormsModule,
