@@ -64,6 +64,21 @@ export class ApiService {
     this.cancelRequest$.next();
   }
 
+
+
+  postWithStatus(path: string, entity: any,errorHandling?:Function,isCustomError?:boolean): Observable<RequestState> {
+    const  resp$= this.http.post<HttpResponse<any>>(`${path}`, entity).pipe(takeUntil(this.cancelRequest$));
+    return trackRequestState(resp$);
+  }
+  
+  getWithStatus(path: string,errorHandling?:Function,isCustomError?:boolean): Observable<RequestState> {
+    const  resp$= this.http.get<any[]>(`${path}`);
+    return trackRequestState(resp$);
+  }
+
+
+
+
   catchErrorHandler(error: any,errorHandling?:Function): Observable<any> {
     // if (error.error) {
     //   let msg = ""
@@ -78,4 +93,30 @@ export class ApiService {
     // if(errorHandling) errorHandling(error);
     return throwError(error)
   }
+}
+
+
+export interface RequestState{
+  isPending: boolean;
+  isSuccess: boolean;
+  isFailed: boolean;
+  data?: any;
+  error?: any;
+}
+
+
+export function trackRequestState(obs$: Observable<any>): Observable<RequestState> {
+  return new Observable<RequestState>(subscriber => {
+    subscriber.next({ isPending: true, isSuccess: false, isFailed: false });
+    obs$.subscribe({
+      next: (data) => {
+        subscriber.next({ isPending: false, isSuccess: true, isFailed: false, data });
+        subscriber.complete();
+      },
+      error: (error) => {
+        subscriber.next({ isPending: false, isSuccess: false, isFailed: true, error });
+        subscriber.complete();
+      }
+    });
+  });
 }

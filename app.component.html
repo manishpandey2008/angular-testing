@@ -5,7 +5,7 @@
 </div> -->
 
 <!-- <app-popup></app-popup> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 
 
 <!-- <app-di-first></app-di-first> -->
@@ -192,6 +192,24 @@
 <br>
 <app-test3></app-test3> -->
 
+
+<!-- <InfiniteBatchDataLoader></InfiniteBatchDataLoader> -->
+
+<!-- <AddLoaderOnDependentField></AddLoaderOnDependentField> -->
+
+
+
+<div [formGroup]="statusCheckFormGroup">
+    <input type="text" formControlName="field1">
+    <input type="text" formControlName="field2">
+</div>
+
+<div>
+  {{xVal()}}
+</div>
+<button type="button" (click)="addPendingStatus()">Add Pending</button>
+<button type="button" (click)="removePendingStatus()">Remove Pending</button>
+<button type="button" (click)="saveButton()">Save</button>
 
 
  
